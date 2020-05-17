@@ -1,0 +1,9 @@
+.container{
+border: 5px solid blue;
+padding: 30px;
+}
+.container h2{
+    text-align: center;
+    color: blue;
+    margin-bottom: 15px;
+}

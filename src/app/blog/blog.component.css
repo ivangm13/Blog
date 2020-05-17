@@ -1,0 +1,18 @@
+.container .row .post{
+    border: 3px solid black;
+    padding: 10px;
+}
+
+.container .row .post {
+    margin: 15px;
+    
+}
+.container .row .post h3{
+    text-align: center;
+}
+
+.container .row .post .imagen img{
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+}

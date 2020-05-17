@@ -1,1 +1,34 @@
-<p>blog works!</p>
+<div class="container mt-3">
+    <div class="row">
+        <div class="col-12 d-flex flex-wrap">
+            <div class="post col-5" *ngFor="let post of arrPosts">
+                <h3>{{post.titulo}}</h3>
+                <p class="mb-4">{{post.texto}}</p>
+                <div class="d-flex justify-content-between">
+                    <div>
+                        <p>{{post.categoria}}</p>
+                        <p>{{post.fecha}}</p>
+                        <p>{{post.autor}}</p>
+                    </div>
+                    <div class="imagen">
+                        <img [src]="post.imagen">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-11 botones d-flex justify-content-between">
+            <div class="form-group">
+                <label for="select">Filtrar por categoria</label>
+                <select class="form-control" (change)="filtrarCategoria($event)">
+                    <option value="">Selecciona una categoría</option>
+                    <option value="deportes">Deportes</option>
+                    <option value="tecnologia">Tecnología</option>
+                    <option value="actualidad">Actualidad</option>
+                    <option value="recetas">Recetas</option>
+                </select>
+            </div>
+            <div><button (click)="goToNew()" class="btn btn-outline-danger">NUEVO POST</button></div>
+        </div>
+
+    </div>
+</div>
