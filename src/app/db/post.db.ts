@@ -5,7 +5,7 @@ export const POSTS:Post[] = [
         texto: 'Este es el post de prueba número 1. Es de la categoría deportes',
         autor: 'Iván García',
         imagen: 'https://educationatw.com/wp-content/uploads/2017/11/SPORTS-ICON-300x300.png',
-        fecha: '17/05-2020',
+        fecha: '17/05/2020',
         categoria: 'deportes'
     },
     {
@@ -14,7 +14,7 @@ export const POSTS:Post[] = [
         autor: 'Ivan García',
         imagen: 'https://triaformacion.com/wp-content/uploads/2018/04/icono-tecnologia.jpg',
         fecha: '17/05/2020',
-        categoria: ' tecnologia'
+        categoria: 'tecnologia'
     },
     {
         titulo: 'Titulo 3',
