@@ -1,25 +1,8 @@
-<div class="container mt-3">
-    <div class="row">
-        <div class="col-12 d-flex flex-wrap">
-            <div class="post col-5" *ngFor="let post of arrPosts">
-                <h3>{{post.titulo}}</h3>
-                <p class="mb-4">{{post.texto}}</p>
-                <div class="d-flex justify-content-between">
-                    <div>
-                        <p>{{post.categoria}}</p>
-                        <p>{{post.fecha}}</p>
-                        <p>{{post.autor}}</p>
-                    </div>
-                    <div class="imagen">
-                        <img [src]="post.imagen">
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="col-11 botones d-flex justify-content-between">
-            <div class=" categoria form-group">
-                <label for="select">Filtrar por categoria</label>
-                <select class=" form-control" (change)="filtrarCategoria($event)">
+<header>
+    <div class="container-fluid cabecera">
+        <div class="container botones d-flex justify-content-between">
+            <div>
+                <select class="form-control selector mt-2" (change)="filtrarCategoria($event)">
                     <option value="">Selecciona una categoría</option>
                     <option value="deportes">Deportes</option>
                     <option value="tecnologia">Tecnología</option>
@@ -27,8 +10,32 @@
                     <option value="recetas">Recetas</option>
                 </select>
             </div>
-            <div><button (click)="goToNew()" class="btn btn-outline-danger mt-4">NUEVO POST</button></div>
+            <button (click)="goToNew()" class="btn btn-outline-warning mt-2">NUEVO POST</button>
         </div>
+    </div>
+</header>
+
+<div class="container mt-3">
+    <div class="row">
+        <div class="col-12  d-flex flex-wrap">
+            <div class="post col-lg-5 col-md-12 col-sm-12 d-flex flex-column justify-content-between" *ngFor="let post of arrPosts">
+                <div>
+                    <h3>{{post.titulo}}</h3>
+                <p class="mb-4">{{post.texto}}</p>
+                </div>
+                <div class="d-flex justify-content-between">
+                    <div>
+                        <p class="mt-2"><strong>Categoría: </strong>{{post.categoria}}</p>
+                        <p><strong>Publicado: </strong>{{post.fecha}}</p>
+                        <p><strong>Autor: </strong>{{post.autor}}</p>
+                    </div>
+                    <div class="imagen">
+                        <img [src]="post.imagen">
+                    </div>
+                </div>
+            </div>
+        </div>
+
 
     </div>
 </div>
