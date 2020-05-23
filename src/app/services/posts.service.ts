@@ -9,39 +9,42 @@ export class PostsService {
 
   posts: Post[];
 
-  constructor() { 
-    this.posts =  POSTS;
-      
-    
+  constructor() {
+    this.posts = POSTS;
   }
 
+  /**
+   *  Permite añadir el post generado en el formulario al conjunto de posts.
+   * 
+   * @param post -->Post generado desde el formulario
+   */
   agregarPost(post: Post) {
-    /* Agregar un post desde el formulario */
-
     this.posts.push(post);
-    console.log(this.posts);
   }
-  getAllPosts():Promise<Post[]> {
-    
-    /* Recuperar los posts con una promesa*/
-    return new Promise ((resolve,reject)=>{
-      resolve(this.posts);
-    });
-    
+
+  /**
+   * 
+   * Recupera el conjunto de post a través de una promesa
+   */
+  getAllPosts(): Promise<Post[]> {
+    return new Promise((resolve, reject) => resolve(this.posts));
   }
-  getPostsByCategoria(cat: string):Promise<Post[]> {
-    /* Recuperar los post de una categoria concreta, con promesa */
-    return new Promise ((resolve,reject)=>{
-      let postPorCategoria = new Array<Post>();
-      for(let post of this.posts){
-        if(cat===''){
-          postPorCategoria = this.posts;
-        }else if(post.categoria===cat){
-          postPorCategoria.push(post);
-        }
+
+  /**
+   * Permite filtrar los post por categoría utilizando el método de arrays filter
+   * @param cat --> Categoría que se quiere filtrar
+   */
+  getPostsByCategoria(cat: string): Promise<Post[]> {
+    let postPorCategoria = [];
+    return new Promise((resolve, reject) => {
+      if (cat === '') {
+        postPorCategoria = this.posts;
+      } else {
+        postPorCategoria = this.posts.filter((post) => {
+          return post.categoria === cat;
+        })
       }
       resolve(postPorCategoria);
     })
   }
-
 }

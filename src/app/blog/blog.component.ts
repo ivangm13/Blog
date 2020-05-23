@@ -19,13 +19,18 @@ export class BlogComponent implements OnInit {
   async  ngOnInit() {
     this.arrPosts = await this.postsService.getAllPosts();
   }
+
+  /**
+   * Filtra los post presentes por la categoría elegida por el usuario
+   */
   async filtrarCategoria($event) {
-    console.log($event.target.value)
     this.arrPosts = await this.postsService.getPostsByCategoria($event.target.value)
   }
-
+  /**
+   * Envía al usuario a la sección para crear una entrada del blog
+   */
   goToNew() {
-  this.router.navigate(['/new']);
+    this.router.navigate(['/new']);
   }
 
 }

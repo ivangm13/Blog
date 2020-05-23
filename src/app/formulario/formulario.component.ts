@@ -21,8 +21,10 @@ export class FormularioComponent implements OnInit {
   ngOnInit(): void {
 
   }
+  /**
+   * Función ejecutada al pulsar el botón enviar del formulario. Se encarga de almacenar el post generado y, además, devuelve al usuario a la página principal del blog para poder ver la entrada, junto con todas las demás
+   */
   onClickEnviar() {
-    console.log(this.post);
     let imagen: string;
     switch (this.post.categoria) {
       case 'deportes':
@@ -41,7 +43,6 @@ export class FormularioComponent implements OnInit {
     this.post.imagen = imagen;
     this.postsService.agregarPost(this.post);
     this.router.navigate(['/blog']);
-
   }
 
 }
